@@ -58,7 +58,7 @@ class DeliveryDrone(FlyingRobot):
         super().__init__(name, weight, coords)
         self.max_load_weight = max_load_weight
         self.current_load = None
-        if current_load:
+        if current_load and current_load.weight <= max_load_weight:
             self.hook_load(cargo=current_load)
         elif current_load and current_load.weight > max_load_weight:
             raise ValueError()
